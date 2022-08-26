@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import Cards from './components/utils/Cards'
+import Content from './components/Content'
 import './App.css';
+import React from 'react'
+import { nanoid } from 'nanoid'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {Cards.map(el =>
+      (<Content key={nanoid()}{...el}>
+        {el.img ? (<img src={el.img} className="card-img-top" alt="..." />) : null}
+      </Content>
+      ))}
     </div>
   );
 }
